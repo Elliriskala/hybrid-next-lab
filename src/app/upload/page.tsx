@@ -1,11 +1,16 @@
-const Page = () => {
-    return (
-        <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-        <main>
-          <h1 className="text-4xl font-bold">Upload</h1>
-        </main>
-      </div>
-    );
-  };
-  
-  export default Page;
+import MediaForm from "@/components/MediaForm";
+import { requireAuth } from "@/lib/authActions";
+
+const Upload = async () => {
+  await requireAuth();
+  return (
+    <div>
+      <main>
+        <h1 className="text-4xl font-bold">Upload</h1>
+        <MediaForm />
+      </main>
+    </div>
+  );
+};
+
+export default Upload;
